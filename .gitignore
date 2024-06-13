@@ -1,0 +1,15 @@
+# Byte-compiled / optimized Python files
+__pycache__/
+*.py[cod]
+
+# Django generated files
+*.log
+*.pot
+*.pyc
+db.sqlite3
+media/
+staticfiles/
+
+# Ignore the virtual environment
+venv/
+.env
