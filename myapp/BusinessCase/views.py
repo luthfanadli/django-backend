@@ -152,6 +152,20 @@ def view_all_users(request):
         return JsonResponse({'error': 'Method not allowed.'}, status=405)
 
 
+@api_view(['GET'])
+@csrf_exempt
+def get_user_detail(request, user_id):
+    if request.method == 'GET':
+        try:
+            user = User.objects.get(user_id=user_id)
+            serializer = UserSerializer(user)
+            return JsonResponse(serializer.data, safe=False)
+        except User.DoesNotExist:
+            return JsonResponse({'error': 'User not found.'}, status=404)
+    else:
+        return JsonResponse({'error': 'Method not allowed.'}, status=405)
+
+
 @api_view(['POST'])
 def create_order(request):
     if request.method == 'POST':

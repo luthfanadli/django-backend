@@ -9,6 +9,7 @@ urlpatterns = [
     path('login', views.login_user),
     path('user/<int:id>', views.delete_user),  
     path('users', views.view_all_users),
+    path('users/<int:user_id>', views.get_user_detail),
     path('order', views.create_order),
     path('order-history/<int:user_id>', views.get_order_history)
 ]
